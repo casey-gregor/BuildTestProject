@@ -78,6 +78,10 @@ jobs:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     steps:
+       # Checkout the repository first
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
       # Download the build artifacts
       - uses: actions/download-artifact@v4
         with:
