@@ -67,6 +67,7 @@ jobs:
       - name: Move build artifacts
         run: |
           mkdir -p build_tmp
+          sudo chmod -R 777 build/WebGL
           rsync -a build/WebGL/ build_tmp/
           rm -rf build/WebGL
           mv build_tmp build
