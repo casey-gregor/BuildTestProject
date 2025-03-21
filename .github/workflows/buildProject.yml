@@ -65,12 +65,12 @@ jobs:
           unityVersion: 6000.0.36f1  # Update this to match your Unity version
 
       # Move contents of build/WebGL to build
-      - name: Move build files
-        run: |
-          mkdir -p build_temp
-          mv build/WebGL/* build_temp/
-          rm -r build
-          mv build_temp build
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Build
+          path: build
+          retention-days: 14
           
       # Upload build artifacts
       - name: Upload build artifacts
