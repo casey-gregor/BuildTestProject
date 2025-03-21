@@ -71,14 +71,6 @@ jobs:
           name: Build
           path: build
           retention-days: 14
-          
-      # Upload build artifacts
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: Build
-          path: build/WebGL
-          retention-days: 14
 
   # Deploy to Pages
   deployPages: 
