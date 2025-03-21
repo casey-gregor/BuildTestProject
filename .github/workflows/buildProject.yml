@@ -64,6 +64,13 @@ jobs:
           targetPlatform: WebGL
           unityVersion: 6000.0.36f1  # Update this to match your Unity version
 
+      - name: Move build artifacts
+        run: |
+          mkdir -p build_tmp
+          mv build/WebGL/* build_tmp/
+          rm -rf build/WebGL
+          mv build_tmp build
+          
       # Move contents of build/WebGL to build
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
