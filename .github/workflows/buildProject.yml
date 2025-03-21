@@ -67,8 +67,10 @@ jobs:
       # Move contents of build/WebGL to build
       - name: Move build files
         run: |
-          mv build/WebGL/* build/
-          rm -r build/WebGL
+          mkdir -p build_temp
+          mv build/WebGL/* build_temp/
+          rm -r build
+          mv build_temp build
           
       # Upload build artifacts
       - name: Upload build artifacts
