@@ -92,10 +92,10 @@ jobs:
           BULTER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
         with: 
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: web
+          CHANNEL: html5
           ITCH_GAME: ch
           ITCH_USER: gercen
-          PACKAGE: build/web
+          PACKAGE: build
           
   # # Deploy to Pages
   # deployPages: 
