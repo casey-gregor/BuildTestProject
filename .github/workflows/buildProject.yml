@@ -92,8 +92,8 @@ jobs:
           BULTER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
         with: 
           folder: html5
-          itch_user: ${{ env.ITCH_USER }}
-          itch_game: ${{ env.ITCH_GAME }}
+          itch_user: gercen
+          itch_game: ch
           package: build
           
   # # Deploy to Pages
