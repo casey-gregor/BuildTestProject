@@ -87,14 +87,15 @@ jobs:
           name: Build
           path: build
       - name: Deploy to Itch.io
-        uses: manleydev/butler-publish-itchio-action@master
+        uses: yeslayla/butler-publish-itchio-action@master
         env:
           BULTER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
         with: 
-          folder: html5
-          itch_user: gercen
-          itch_game: ch
-          package: build
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: web
+          ITCH_GAME: ch
+          ITCH_USER: gercen
+          PACKAGE: build/web
           
   # # Deploy to Pages
   # deployPages: 
