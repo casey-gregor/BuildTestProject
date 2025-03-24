@@ -78,8 +78,8 @@ jobs:
     name: Deploy to itch.io
     runs-on: ubuntu-latest
     env:
-      ITCH_USER: ${{ secrets.ITCH_USER }}
-      ITCH_GAME: ${{ secrets.ITCH_GAME }}
+      ITCH_USER: gercen
+      ITCH_GAME: ch
     steps:
       # Download the build artifacts
       - uses: actions/download-artifact@v4
