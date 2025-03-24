@@ -87,7 +87,7 @@ jobs:
           name: Build
           path: build
       - name: Deploy to Itch.io
-        uses: manleydev/butler-publish-itchio-action@v1.0.3
+        uses: yeslayla/butler-publish-itchio-action@master
         env:
           BULTER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
         with: 
