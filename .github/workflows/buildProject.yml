@@ -86,16 +86,13 @@ jobs:
         with:
           name: Build
           path: build
-      - name: Deploy to Itch.io
-        uses: yeslayla/butler-publish-itchio-action@master
+      - uses: yeslayla/butler-publish-itchio-action@master
         env:
-          BULTER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-        with: 
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: html5
-          ITCH_GAME: ch
-          ITCH_USER: gercen
-          PACKAGE: build
+          INPUT_CHANNEL: html5
+          INPUT_ITCH_USER: gercen
+          INPUT_ITCH_GAME: ch
+          INPUT_PACKAGE: build
           
   # # Deploy to Pages
   # deployPages: 
