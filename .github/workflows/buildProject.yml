@@ -86,13 +86,14 @@ jobs:
         with:
           name: Build
           path: build
-      - uses: yeslayla/butler-publish-itchio-action@master
+      - name: Setup butler
+        uses: remarkablegames/setup-butler@v1
+
+      - name: Upload to itch.io
+        # https://itch.io/docs/butler/pushing.html
+        run: butler push directory gercen/ch:html5
         env:
-          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          INPUT_CHANNEL: html5
-          INPUT_ITCH_USER: gercen
-          INPUT_ITCH_GAME: ch
-          INPUT_PACKAGE: build
+          BUTLER_API_KEY: ${{ secrets.BUTLER_CREDENTIALS }}
           
   # # Deploy to Pages
   # deployPages: 
