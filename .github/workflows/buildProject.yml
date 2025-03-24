@@ -72,26 +72,50 @@ jobs:
           path: build/WebGL/WebGL
           retention-days: 14
 
-  # Deploy to Pages
-  deployPages: 
+# Deploy to itch.io
+  deployItch:
     needs: build
-    name: Deploy to GitHub Pages
+    name: Deploy to itch.io
     runs-on: ubuntu-latest
+    env:
+      ITCH_USER: ${{ secrets.ITCH_USER }}
+      ITCH_GAME: ${{ secrets.ITCH_GAME }}
     steps:
-       # Checkout the repository first
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      
       # Download the build artifacts
       - uses: actions/download-artifact@v4
         with:
           name: Build
           path: build
-
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.4.3
+      - name: Deploy to Itch.io
+        uses: manleydev/butler-publish-itchio-action@v1.0.3
+        env:
+          BULTER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
         with: 
-          folder: build
-          branch: gh-pages
-          clean: true  # This will clean up the gh-pages branch
-          single-commit: true
+          folder: html5
+          itch_user: ${{ env.ITCH_USER }}
+          itch_game: ${{ env.ITCH_GAME }}
+          package: build
+          
+  # # Deploy to Pages
+  # deployPages: 
+  #   needs: build
+  #   name: Deploy to GitHub Pages
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #      # Checkout the repository first
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v4
+      
+  #     # Download the build artifacts
+  #     - uses: actions/download-artifact@v4
+  #       with:
+  #         name: Build
+  #         path: build
+
+  #     - name: Deploy
+  #       uses: JamesIves/github-pages-deploy-action@v4.4.3
+  #       with: 
+  #         folder: build
+  #         branch: gh-pages
+  #         clean: true  # This will clean up the gh-pages branch
+  #         single-commit: true
